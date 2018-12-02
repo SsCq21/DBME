@@ -45,14 +45,17 @@ Statement s=conn.createStatement();
  		String sql = "select count(*) from customer where Cid='" + id + "'and Cpwd='" + password + "'";
  	   //ck = stmt.executeQuery(sql);
         ck=s.executeQuery(sql);
-            ck.next();
-            if (ck.getInt(1) == 1) {
-                response.sendRedirect("main.jsp");
-            } else {
-                out.println("UserID or Password wrong...Pls reinput...");
+        int count=0;
+        while(ck.next() ) {count=ck.getInt(1);}
+            //ck.next();
+            if (count!=0) {
+            out.println("UserID or Password wrong...Pls reinput...");
                 out.println("Turn back in 3 seconds... <br><br> <a href='index.jsp'>If not, press here</a>");
                 response.setHeader("refresh", "3;URL=index.jsp");
-              
+               
+            } else {
+             response.sendRedirect("main.jsp");
+                
             }
             
             
