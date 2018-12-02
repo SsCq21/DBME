@@ -27,8 +27,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<script type="text/javascript">
             function check(){
-	var uname = document.getElementById("userid").value;
-	var upassword = document.getElementById("password").value;
+	var Cid = document.getElementById("Cid").value;
+	var Cpwd = document.getElementById("Cpwd").value;
 	if(Cid==""){
 		alert("Userid cannot be null！");
 		return false;
@@ -54,19 +54,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div align="center" style="margin-top:30px;">
      <form method="POST" action="hRegisterJudge.jsp" onsubmit="return check()">
    
-   <h3>CustomerID：<input type="text" name="Cid" id="Cid" value="" size="20"> </h3><br><br>
-    <h3>Password：<input type="password" name="Cpwd" id="Cpwd" value="" size="20" ></h3><br><br>
-    <h3>Firstname:<input type="text" name="fname" id="fname" value="" size="20"></h3><br><br>
-    <h3>Lastname:<input type="text" name="lname" id="lname" value="" size="20"></h3><br><br>
+   <h3>CustomerID：<input type="text" name="Cid" id="Cid" value="" size="20"> </h3>
+    <h3>Password：<input type="password" name="Cpwd" id="Cpwd" value="" size="20" ></h3>
+    <h3>Firstname:<input type="text" name="fname" id="fname" value="" size="20"></h3>
+    <h3>Lastname:<input type="text" name="lname" id="lname" value="" size="20"></h3>
    <h3>Gender：<input type="radio" name="gender" id="gender" value="male" >Male&nbsp;&nbsp;
-               <input type="radio" name="gender" id="gender" value="female" >Female</h3><br><br>
+               <input type="radio" name="gender" id="gender" value="female" >Female</h3>
     <h3>Age:<input type="text" name="age" id="age" value="" size="20"><br><br> 
     <h3>Income:<input type="text" name="income" id="income" value="" size="20"><br><br> 
     <h3>E-mail:<input type="text" name="email" id="email" value="" size="20"><br><br> 
     <h3>Phone:<input type="text" name="phone" id="phone" value="" size="20"><br><br> 
      <h3>Marriage：<input type="radio" name="marriage" value="single" >Single&nbsp;&nbsp;
-                        <input type="radio" name="marriage" value="married">Married</h3><br><br> 
-     <h3>Address:<input type="text" name="add" id="add" value="" size="50"></h3><br><br>                            
+                        <input type="radio" name="marriage" value="married">Married</h3> 
+     <h3>Address:<input type="text" name="add" id="add" value="" size="50"></h3>                          
     <input type=submit value="Register" >
     <input type=reset value="Clear"><br><br>
   </form>
