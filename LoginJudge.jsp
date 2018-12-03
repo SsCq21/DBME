@@ -48,7 +48,7 @@ Statement s=conn.createStatement();
         int count=0;
         while(ck.next() ) {count=ck.getInt(1);}
             //ck.next();
-            if (count!=0) {
+            if (count==0) {
             out.println("UserID or Password wrong...Pls reinput...");
                 out.println("Turn back in 3 seconds... <br><br> <a href='index.jsp'>If not, press here</a>");
                 response.setHeader("refresh", "3;URL=index.jsp");
