@@ -1,0 +1,57 @@
+package bean;
+import java.util.ArrayList;
+
+public class cart {
+	private ArrayList buylist=new ArrayList();
+	public ArrayList getBuylist() {
+		return buylist;
+	}
+	
+	public void addItem(product p) {
+		if(p!=null) {
+			int i=0;
+			for(;i<buylist.size();i++) {
+				product temp=(product)buylist.get(i);
+				if(temp.getPid().equals(p.getPid())){
+					temp.setPquantity(temp.getPquantity()+1);
+					break;
+				}
+			}
+			if(i==buylist.size()) {
+				buylist.add(p);
+			}
+		}
+	}
+	
+	public void removeItem(String Pid) {
+		for(int i=0;i<buylist.size();i++) {
+			product temp=(product)buylist.get(i);
+			if(temp.getPid().equals(Pid)) {
+				if(temp.getPquantity()>1) {
+					temp.setPquantity(temp.getPquantity()-1);
+					break;
+				}
+				else if(temp.getPquantity()==1) {
+					buylist.remove(i);
+					break;
+				}
+			}
+		}
+	}
+	
+	public void addone(String Pid) {
+		for(int i=0;i<buylist.size();i++) {
+			product temp=(product)buylist.get(i);
+			if(temp.getPid().equals(Pid)) {
+				temp.setPquantity(temp.getPquantity()+1);
+			}
+			
+		}
+	}
+	
+	public void clearCar() {
+		buylist.clear();
+	}
+
+
+}
