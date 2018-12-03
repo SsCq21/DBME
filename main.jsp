@@ -20,21 +20,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  
  <link href="CSS/menu.css" rel="stylesheet" type="text/css"/>
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+<script type="text/javascript">
+function addcart(a) {
+if(a!="") {alter("111");}
 
+//alter(a);
+//return false;
+}
+
+
+</script>
 
   </head>
   
   <body style="background: url(IMG/CM.jpg);background-size:cover">
    
    <div class=right>
-   <a href="#"><h21>Welcome~<%=session.getAttribute("userid") %></h21></a>
+   <a href=""><h21>Welcome~<%=session.getAttribute("userid") %></h21></a>
    <a href="#"><h21>ShoppingCart</h21></a>
      <a href="index.jsp"><h21>Logout</h21></a>
      </div>
@@ -85,7 +93,7 @@ ResultSet ck=s.executeQuery(sql);
 
  %>
  <div align="center">
-<table class="table table-bordered" width=100% align=center>
+<table class="table table-bordered margin-top:-50px" width=100% align=center >
 <thead><tr class="active">
 <td align="center"><h4>Pid</h4></td>
 <td align="center"><h4>Pname</h4></td>
@@ -110,6 +118,7 @@ Double pri=ck.getDouble("price");
 product p=new product();
 p.setPid(pid);
 p.setPname(pname);
+p.setimage(img);
 p.settype(typ);
 p.setinventory(inven);
 p.setprice(pri);
@@ -117,14 +126,14 @@ productlist.add(i,p);
 %>
 
 <tbody><tr>
-<td align="center"><h4><%=pid %></h4></td>
+<td align="center" ><h4><%=pid %></h4></td>
 <td align="center"><h4><%=pname %></h4></td>
 <td align="center"><img border=0 height=100 src="IMG/product/<%=img %>.jpg"></td>
 <td align="center"><h4><%=typ %></h4></td>
 <td align="center"><h4><%=inven %></h4></td>
 <td align="center"><h4><%=pri %></h4></td>
-<td align="center"><a href="#"><h4 class="btn btn-success">Add to Cart</h4></a></td>
-<td align="center"><a href="#"><h4 class="btn btn-info">Buy</h4></a></td>
+<td align="center"><a href="#"><h4 class="btn btn-success">Add to cart</h4></a></td>
+<td align="center"><a href="buy.jsp?index=<%=i%>"><h4 class="btn btn-info">Buy</h4></a></td>
 </tr></tbody>
 <% i=i+1;}
 session.setAttribute("productlist",productlist);
