@@ -42,6 +42,9 @@ public class product {
 	public String getimage() {
 		return image;
 	}
+	public void setimage(String image) {
+		this.image=image;
+	}
 	
 	public double getprice() {
 		return price;
