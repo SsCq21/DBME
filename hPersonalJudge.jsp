@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  
  try{ 
      Class.forName("com.mysql.jdbc.Driver");
-     }
+     } 
  catch(ClassNotFoundException  e)  {}
 
 String url="jdbc:mysql://localhost:8889/db";
@@ -69,12 +69,12 @@ out.println("The CustomerID already exises...");
 
 else {
 
-String sql2="update customer set Cid='"+Cid+"',Cpwd='"+Cpwd+"',firstname='"+fname+"',lastname'"+lname+"',address='"+address+"',email='"+email+"',phone='"+phone+"' where Cid='"+Cid+"'";
+String sql2="update customer set Cid='"+Cid+"',Cpwd='"+Cpwd+"',firstname='"+fname+"',lastname'"+lname+"',address='"+address+"',email='"+email+"',phone='"+phone+"' where Cid='"+userid+"'";
 Statement s2=conn.createStatement();
 s2.executeUpdate(sql2);
 s2.close();
 
-String sql3="update Home set customer='"+Cid+"',gender='"+gender+"',age='"+age2+"',income='"+income2+"',marriage'"+marriage+"' where customer='"+Cid+"'";
+String sql3="update Home set customer='"+Cid+"',gender='"+gender+"',age='"+age2+"',income='"+income2+"',marriage'"+marriage+"' where customer='"+userid+"'";
 Statement s3=conn.createStatement();
 s3.executeUpdate(sql3);
 s3.close();
